@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using InscripcionCursos.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using InscripcionCursos.Models;
 
 namespace InscripcionCursos
 {
@@ -33,6 +34,10 @@ namespace InscripcionCursos
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddDbContext<coursesRegisterContext>(options =>
+                options.UseSqlServer(
+                Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
