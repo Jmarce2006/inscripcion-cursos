@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using InscripcionCursos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InscripcionCursos.Controllers
 {
+    [Authorize]
     public class StudentsController : Controller
     {
         private readonly coursesRegisterContext _context;
